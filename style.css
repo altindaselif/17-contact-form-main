@@ -100,6 +100,7 @@ body {
   border: 0.1rem solid var(--grey-500);
   border-radius: 0.8rem;
   padding: var(--spacing-150) var(--spacing-300);
+  transition: border-color 0.2s ease;
 }
 
 .form-input-text {
@@ -124,7 +125,8 @@ body {
 }
 
 .form-element.error .form-input-text,
-.form-element.error .form-input-box {
+.form-element.error .form-input-box,
+.form-element.error .form-query-type {
   border-color: var(--red);
 }
 

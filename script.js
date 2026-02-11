@@ -1,19 +1,17 @@
 const form = document.querySelector(".form-grid");
+const queryElement = document.querySelector(".query-element");
 const firstNameInput = document.getElementById("first-name");
 const lastNameInput = document.getElementById("last-name");
 const emailInput = document.getElementById("email");
-const radioInput = document.querySelector('input[name="query-type"]');
 const messageInput = document.getElementById("message");
 const consentInput = document.getElementById("consent");
 const messageWindow = document.querySelector(".success-message");
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 const isValidEmail = (email) => emailRegex.test(email);
 
 const showError = (input) =>
   input.closest(".form-element").classList.add("error");
-
 const clearError = (input) =>
   input.closest(".form-element").classList.remove("error");
 
@@ -31,7 +29,6 @@ form.addEventListener("submit", function (e) {
   } else {
     clearError(firstNameInput);
   }
-
   if (!lastNameInput.value.trim()) {
     isValid = false;
     showError(lastNameInput);
@@ -39,10 +36,7 @@ form.addEventListener("submit", function (e) {
     clearError(lastNameInput);
   }
 
-  if (!emailInput.value.trim()) {
-    isValid = false;
-    showError(emailInput);
-  } else if (!isValidEmail(emailInput.value)) {
+  if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
     isValid = false;
     showError(emailInput);
   } else {
@@ -51,9 +45,9 @@ form.addEventListener("submit", function (e) {
 
   if (!checkedRadioInput) {
     isValid = false;
-    showError(radioInput);
+    showError(queryElement);
   } else {
-    clearError(radioInput);
+    clearError(queryElement);
   }
 
   if (!messageInput.value.trim()) {
@@ -73,19 +67,26 @@ form.addEventListener("submit", function (e) {
   if (isValid) {
     messageWindow.classList.add("active");
     form.reset();
-
     messageWindow.focus();
 
     setTimeout(() => {
       messageWindow.classList.remove("active");
-    }, 3000);
+    }, 5000);
   }
 });
 
-form.addEventListener("input", function (e) {
-  const input = e.target;
-
-  if (input.closest(".form-element").classList.contains("error")) {
-    clearError(input);
+form.addEventListener("input", (e) => {
+  const target = e.target;
+  if (target.closest(".form-element").classList.contains("error")) {
+    if (target.name === "query-type") {
+      clearError(queryElement);
+    } else {
+      clearError(target);
+    }
   }
+});
+
+form.addEventListener("change", (e) => {
+  if (e.target.name === "query-type") clearError(queryElement);
+  if (e.target.id === "consent") clearError(consentInput);
 });

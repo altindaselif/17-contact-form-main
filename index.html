@@ -24,7 +24,12 @@
   </head>
   <body>
     <main class="main-container">
-      <div class="success-message" tabindex="-1">
+      <div
+        class="success-message"
+        role="status"
+        aria-live="polite"
+        tabindex="-1"
+      >
         <div class="message-header">
           <img
             class="message-icon"
@@ -51,8 +56,11 @@
             autocomplete="given-name"
             autocapitalize="words"
             required
+            aria-describedby="first-name-error"
           />
-          <span class="form-error">This field is required</span>
+          <span class="form-error" id="first-name-error" role="alert"
+            >This field is required</span
+          >
         </div>
         <div class="form-element last-name-element">
           <label class="form-label" for="last-name"
@@ -66,8 +74,11 @@
             autocomplete="family-name"
             autocapitalize="words"
             required
+            aria-describedby="last-name-error"
           />
-          <span class="form-error">This field is required</span>
+          <span class="form-error" id="last-name-error" role="alert"
+            >This field is required</span
+          >
         </div>
         <div class="form-element email-element">
           <label class="form-label" for="email"
@@ -80,8 +91,11 @@
             name="email"
             autocomplete="email"
             required
+            aria-describedby="email-error"
           />
-          <span class="form-error">Please enter a valid email address</span>
+          <span class="form-error" id="email-error" role="alert"
+            >Please enter a valid email address</span
+          >
         </div>
         <fieldset class="form-element query-element">
           <legend class="form-label">
@@ -95,6 +109,7 @@
                 id="general-enquiry"
                 name="query-type"
                 required
+                aria-describedby="radio-error"
               />
               <span>General Enquiry</span>
             </label>
@@ -105,11 +120,14 @@
                 id="support-request"
                 name="query-type"
                 required
+                aria-describedby="radio-error"
               />
               <span>Support Request</span>
             </label>
           </div>
-          <span class="form-error">Please select a query type</span>
+          <span class="form-error" id="radio-error" role="alert"
+            >Please select a query type</span
+          >
         </fieldset>
         <div class="form-element message-element">
           <label class="form-label" for="message"
@@ -122,8 +140,11 @@
             rows="4"
             autocapitalize="sentences"
             required
+            aria-describedby="message-error"
           ></textarea>
-          <span class="form-error">This field is required</span>
+          <span class="form-error" id="message-error" role="alert"
+            >This field is required</span
+          >
         </div>
         <div class="form-element consent-element">
           <div class="consent-row">
@@ -133,13 +154,14 @@
               type="checkbox"
               name="consent"
               required
+              aria-describedby="consent-error"
             />
             <label class="form-label" for="consent"
               >I consent to being contacted by the team
               <span class="form-star">*</span></label
             >
           </div>
-          <span class="form-error"
+          <span class="form-error" id="consent-error" role="alert"
             >To submit this form, please consent to being contacted</span
           >
         </div>

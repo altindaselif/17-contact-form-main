@@ -1,0 +1,283 @@
+:root {
+  /* Colors */
+  --white: #fff;
+  --grey-900: #2a4144;
+  --grey-500: #86a2a5;
+  --green-600: #0c7d69;
+  --green-200: #e0f1e8;
+  --red: #d73c3c;
+
+  /* Typography - Font Family */
+  --font-family: "Karla", sans-serif;
+
+  /* Text Presets */
+  /* Weight Size/Line-Height Family */
+  --tp-heading: 700 3.2rem/1 var(--font-family);
+  --tp-heading-letter-spacing: -0.1rem;
+  --tp-body-md-b: 700 1.8rem/1.5 var(--font-family);
+  --tp-body-md-r: 400 1.8rem/1.5 var(--font-family);
+  --tp-body-sm: 400 1.6rem/1.5 var(--font-family);
+
+  /* Spacing */
+  --spacing-1600: 12.8rem;
+  --spacing-500: 4rem;
+  --spacing-400: 3.2rem;
+  --spacing-300: 2.4rem;
+  --spacing-200: 1.6rem;
+  --spacing-150: 1.2rem;
+  --spacing-100: 0.8rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--green-200);
+  color: var(--grey-900);
+  min-height: 100vh;
+  padding: var(--spacing-1600) var(--spacing-400);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-grid {
+  background-color: var(--white);
+  border-radius: 1.6rem;
+  padding: var(--spacing-500);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--spacing-200);
+  row-gap: var(--spacing-300);
+}
+
+.form-heading,
+.email-element,
+.query-element,
+.message-element,
+.consent-element,
+.form-submit-button,
+.submit-button {
+  grid-column: 1 / span 2;
+}
+
+.form-heading {
+  font: var(--tp-heading);
+  letter-spacing: var(--tp-heading-letter-spacing);
+  margin-bottom: var(--spacing-100);
+}
+
+.form-label {
+  display: inline-block;
+  font: var(--tp-body-sm);
+  margin-bottom: var(--spacing-100);
+}
+
+.form-star {
+  color: var(--green-600);
+  margin-left: var(--spacing-100);
+}
+
+.form-input-text,
+.form-query-type {
+  width: 100%;
+  color: inherit;
+  font: var(--tp-body-md-r);
+  border: 0.1rem solid var(--grey-500);
+  border-radius: 0.8rem;
+  padding: var(--spacing-150) var(--spacing-300);
+}
+
+.form-input-text {
+  cursor: text;
+}
+
+.form-input-text:focus {
+  outline: none;
+  border: 0.1rem solid var(--green-600);
+  box-shadow: 0 0 0 1px var(--green-600);
+}
+
+.form-input-text:hover,
+.form-query-type:hover,
+.consent-row:hover .consent-input {
+  border-color: var(--green-600);
+}
+
+.input-first-name,
+.input-last-name {
+  text-transform: capitalize;
+}
+
+.form-element.error .form-input-text,
+.form-element.error .form-input-box {
+  border-color: var(--red);
+}
+
+.form-element.error .form-input-text:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red);
+}
+
+.form-input-box {
+  border: 0.1rem solid var(--grey-500);
+  accent-color: var(--green-600);
+  cursor: pointer;
+}
+
+.form-error {
+  display: none;
+  color: var(--red);
+  font: var(--tp-body-sm);
+  margin-top: var(--spacing-100);
+}
+
+.form-element.error .form-error {
+  display: block;
+}
+
+.form-query-types {
+  display: flex;
+  gap: var(--spacing-200);
+}
+
+.query-element {
+  border: none;
+}
+
+.form-query-type {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-150);
+  cursor: pointer;
+}
+
+.form-query-type:has(.form-input-box:checked) {
+  background-color: var(--green-200);
+  border: 0.1rem solid var(--green-600);
+}
+
+.message-element {
+  margin-bottom: var(--spacing-200);
+}
+
+.consent-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+  margin-bottom: var(--spacing-200);
+}
+
+.consent-element .form-label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.submit-button {
+  padding: var(--spacing-200) 0;
+  border-radius: 0.8rem;
+  border: 1px solid transparent;
+  font: var(--tp-body-md-b);
+  color: var(--white);
+  background-color: var(--green-600);
+}
+
+.submit-button:hover,
+.submit-button:active {
+  background-color: var(--grey-900);
+  cursor: pointer;
+}
+
+.success-message {
+  display: none;
+  position: fixed;
+  top: 2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 45rem;
+  max-width: 90%;
+  background-color: var(--grey-900);
+  border-radius: 1.2rem;
+  padding: var(--spacing-300);
+  z-index: 1000;
+}
+
+.message-header {
+  display: flex;
+  gap: var(--spacing-100);
+  margin-bottom: var(--spacing-100);
+}
+
+.message-title {
+  color: var(--white);
+  font: var(--tp-body-md-b);
+}
+
+.message-text {
+  color: var(--green-200);
+  font: var(--tp-body-sm);
+}
+
+.success-message.active {
+  display: block;
+}
+
+/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
+/* Tablet = 768px = 48em */
+/* Mobile = 384px = 24em */
+
+/******************************************/
+/* BELOW 768px (Tablet) */
+/******************************************/
+@media (max-width: 48em) {
+  /* Desktop layout applies to tablet screens. */
+}
+
+/******************************************/
+/* BELOW 384px (Mobile) */
+/******************************************/
+@media (max-width: 24em) {
+  body {
+    padding: var(--spacing-400) var(--spacing-200);
+  }
+
+  .form-grid {
+    padding: var(--spacing-300);
+    grid-template-columns: 1fr;
+  }
+
+  .form-heading,
+  .email-element,
+  .query-element,
+  .message-element,
+  .consent-element,
+  .form-submit-button,
+  .submit-button {
+    grid-column: auto;
+  }
+
+  .form-query-types {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-query-type {
+    width: 100%;
+  }
+}

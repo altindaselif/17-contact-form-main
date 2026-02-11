@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Contact Form Component</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="success-message" tabindex="-1">
+        <div class="message-header">
+          <img
+            class="message-icon"
+            src="images/icon-success-check.svg"
+            alt="Success Icon"
+          />
+          <p class="message-title">Message Sent!</p>
+        </div>
+        <p class="message-text">
+          Thanks for completing the form. We'll be in touch soon!
+        </p>
+      </div>
+      <form class="form-grid" novalidate>
+        <h1 class="form-heading">Contact Us</h1>
+        <div class="form-element first-name-element">
+          <label class="form-label" for="first-name"
+            >First Name <span class="form-star">*</span></label
+          >
+          <input
+            class="form-input-text input-first-name"
+            id="first-name"
+            type="text"
+            name="first-name"
+            autocomplete="given-name"
+            autocapitalize="words"
+            required
+          />
+          <span class="form-error">This field is required</span>
+        </div>
+        <div class="form-element last-name-element">
+          <label class="form-label" for="last-name"
+            >Last Name <span class="form-star">*</span></label
+          >
+          <input
+            class="form-input-text input-last-name"
+            id="last-name"
+            type="text"
+            name="last-name"
+            autocomplete="family-name"
+            autocapitalize="words"
+            required
+          />
+          <span class="form-error">This field is required</span>
+        </div>
+        <div class="form-element email-element">
+          <label class="form-label" for="email"
+            >Email Address <span class="form-star">*</span></label
+          >
+          <input
+            class="form-input-text"
+            id="email"
+            type="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
+          <span class="form-error">Please enter a valid email address</span>
+        </div>
+        <fieldset class="form-element query-element">
+          <legend class="form-label">
+            Query Type <span class="form-star">*</span>
+          </legend>
+          <div class="form-query-types">
+            <label class="form-query-type" for="general-enquiry">
+              <input
+                class="form-input-box"
+                type="radio"
+                id="general-enquiry"
+                name="query-type"
+                required
+              />
+              <span>General Enquiry</span>
+            </label>
+            <label class="form-query-type" for="support-request">
+              <input
+                class="form-input-box"
+                type="radio"
+                id="support-request"
+                name="query-type"
+                required
+              />
+              <span>Support Request</span>
+            </label>
+          </div>
+          <span class="form-error">Please select a query type</span>
+        </fieldset>
+        <div class="form-element message-element">
+          <label class="form-label" for="message"
+            >Message <span class="form-star">*</span></label
+          >
+          <textarea
+            class="form-input-text"
+            id="message"
+            name="message"
+            rows="4"
+            autocapitalize="sentences"
+            required
+          ></textarea>
+          <span class="form-error">This field is required</span>
+        </div>
+        <div class="form-element consent-element">
+          <div class="consent-row">
+            <input
+              class="form-input-box consent-input"
+              id="consent"
+              type="checkbox"
+              name="consent"
+              required
+            />
+            <label class="form-label" for="consent"
+              >I consent to being contacted by the team
+              <span class="form-star">*</span></label
+            >
+          </div>
+          <span class="form-error"
+            >To submit this form, please consent to being contacted</span
+          >
+        </div>
+        <button class="submit-button" type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
